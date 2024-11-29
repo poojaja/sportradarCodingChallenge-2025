@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Events Calendar</title>
+    <!-- Material Design Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand header__logo" href="#" style="translate: none; rotate: none; scale: none; transition: 0.3s; transform: translate(0px, 0px); opacity: 1;">
+                <img alt="" nitro-lazy-src="https://cdn-ilbncnn.nitrocdn.com/DPmYvNpoKujWQybCKacXenezezvtijDX/assets/images/source/rev-e79879c/sportradar.com/wp-content/uploads/2023/11/Sportradar-Brand-Line_Color_White.svg" class="header__logo--white lazyloaded" decoding="async" nitro-lazy-empty="" id="MTY2OjE3NA==-1" src="https://cdn-ilbncnn.nitrocdn.com/DPmYvNpoKujWQybCKacXenezezvtijDX/assets/images/source/rev-e79879c/sportradar.com/wp-content/uploads/2023/11/Sportradar-Brand-Line_Color_White.svg">
+                <img src="https://cdn-ilbncnn.nitrocdn.com/DPmYvNpoKujWQybCKacXenezezvtijDX/assets/images/source/rev-e79879c/sportradar.com/wp-content/uploads/2023/11/Sportradar-Brand-Line_Color_Black.svg" alt="Sportradar Logo" height="30" style="opacity:0;">
+            </a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://sportradar.com/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#calendar">Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://sportradar.com/contact/">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="https://sportradar.com/wp-content/uploads/2022/03/SR_Basketball_Home.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="content-overlay">
+        <div class="container mt-5">
+            <h2 class="text-center mb-4" style="color:#00003c;text-align:center;">Sports Events Calendar</h2>
+            <div id="calendar" class="mb-4 text-center" style="color:#00003c;text-align:center;"></div>
+        </div>
+    </div>
+    
+    <footer id="footer" class="srt-footer">
+        <div class="container" style="background-color: #1e2329;"">
+            <div class="row">
+                <div class="col-6 text-center">
+                    <p>&copy; 2024 Sports Events Calendar. All rights reserved.</p>
+                </div>
+                <div class="col-6 text-center">
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/sportradarofficial/" class="fab fa-facebook"></a></li>
+                        <li><a href="https://twitter.com/Sportradar" class="fab fa-twitter"></a></li>
+                        <li><a href="https://www.linkedin.com/company/sportradar/" class="fab fa-linkedin"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventModalLabel">Event Details</h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="eventModalBody">
+                    <!-- Event details will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+    <!-- Material Design Bootstrap JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
