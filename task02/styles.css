@@ -144,6 +144,43 @@ h1 {
     position: relative;
     object-fit: contain;
 }
+
+/* ... (previous styles remain the same) ... */
+
+.event-clickable {
+    cursor: pointer;
+}
+
+.event-clickable:hover {
+    background-color: #e8eaf6;
+}
+
+.modal-content {
+    background-color: #f8f9fa;
+}
+
+.modal-header {
+    background-color: #1D222A;
+    color: white;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.event-detail {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.event-detail h6 {
+    color: #3f51b5;
+    margin-bottom: 5px;
+}
+
 /* Footer Styles */
 
 .srt-footer {

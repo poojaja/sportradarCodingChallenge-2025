@@ -1,9 +1,6 @@
-let currentDate = new Date(); // Start with the current date
+let currentDate = new Date();
+let events = [];
 
-document.addEventListener('DOMContentLoaded', function() {
-    fetchEventsAndCreateCalendar();
-    setupMonthNavigation();
-});
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar');
 
@@ -27,7 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    fetchEventsAndCreateCalendar();
+    setupMonthNavigation();
 });
+
 function setupMonthNavigation() {
     const prevButton = document.createElement('button');
     prevButton.innerHTML = '&larr; Previous';
@@ -50,7 +51,7 @@ function setupMonthNavigation() {
 
 function changeMonth(delta) {
     currentDate.setMonth(currentDate.getMonth() + delta);
-    fetchEventsAndCreateCalendar();
+    createCalendar(events);
 }
 
 function fetchEventsAndCreateCalendar() {
@@ -62,7 +63,8 @@ function fetchEventsAndCreateCalendar() {
             return response.json();
         })
         .then(data => {
-            createCalendar(data.data);
+            events = data.data;
+            createCalendar(events);
         })
         .catch(error => {
             console.error('Error fetching events:', error);
@@ -110,7 +112,8 @@ function createCalendar(events) {
                 const dayEvents = events.filter(event => event.dateVenue === formattedDate);
                 
                 calendarHTML += `
-                    <div class="col border p-2 calendar-day">
+                    <div class="col border p-2 calendar-day ${dayEvents.length > 0 ? 'event-clickable' : ''}" 
+                         ${dayEvents.length > 0 ? `onclick="showEventDetails('${formattedDate}')"` : ''}>
                         <div class="fw-bold">${dayCount}</div>
                         ${dayEvents.map(event => `
                             <div class="small">
@@ -135,4 +138,25 @@ function createCalendar(events) {
     }
 
     calendarEl.innerHTML = calendarHTML;
+}
+
+function showEventDetails(date) {
+    const dayEvents = events.filter(event => event.dateVenue === date);
+    let modalContent = '';
+
+    dayEvents.forEach(event => {
+        modalContent += `
+            <div class="event-detail">
+                <h6>${event.homeTeam.name} vs ${event.awayTeam.name}</h6>
+                <p>Date: ${event.dateVenue}</p>
+                <p>Time: ${event.timeVenueUTC}</p>
+                <p>Competition: ${event.originCompetitionName}</p>
+                <p>Stage: ${event.stage.name}</p>
+                ${event.status === 'played' ? `<p>Result: ${event.result.homeGoals} - ${event.result.awayGoals}</p>` : ''}
+            </div>
+        `;
+    });
+
+    document.getElementById('eventModalBody').innerHTML = modalContent;
+    new mdb.Modal(document.getElementById('eventModal')).show();
 }
